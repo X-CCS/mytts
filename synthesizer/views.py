@@ -91,10 +91,10 @@ class TranscriptView(View):
             form = self.form(self.request.POST)
             print("post form:",form)
             if form.is_valid():
-                transcript = form.cleaned_data['transcript']
-                transcript = re.sub("[，。, . ]+", "", transcript)
+                transcript = str(form.cleaned_data['transcript'])
+                transcript = str(re.sub("[，。, . ]+", "", transcript))
                 print("transcript:",transcript)
-                jyutping = " ".join(get_jyutping(transcript))
+                jyutping = str(" ".join(get_jyutping(transcript)))
                 print("jyutping:",jyutping)
 
                 model = Transcript(transcript=transcript, jyutping=jyutping)
