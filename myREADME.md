@@ -37,3 +37,5 @@ http://192.168.9.202:8001/test
 export PATH=$PATH:/home/chenchangshu/mytts
 
 "POST / HTTP/1.1" 400 18
+
+测试接口正常连接：http://192.168.9.202:8001/test
