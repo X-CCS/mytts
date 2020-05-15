@@ -41,3 +41,13 @@ http://192.168.9.202:8001/trans
 
 测试接口正常连接：http://192.168.9.202:8001/test get 可以 post不行
 http://192.168.9.202:8001/trans
+
+
+origin form: <class 'synthesizer.forms.TranscriptForm'>
+i am TranscriptView
+
+get form: <tr><th><label for="id_transcript">Transcript:</label></th><td><ul class="errorlist"><li>This field is required.</li></ul><textarea name="transcript" cols="40" rows="4" class="form-control mb-4" maxlength="100" required id="id_transcript">
+
+
+export PYTHONPATH=/home/chenchangshu/mytts:$PYTHONPATH
+echo $PYTHONPATH
