@@ -53,3 +53,5 @@ export PYTHONPATH=/home/chenchangshu/mytts:$PYTHONPATH
 echo $PYTHONPATH
 
 BASE_DIR: /home/chenchangshu/mytts
+
+然后接着从服务器收到如下内容：
