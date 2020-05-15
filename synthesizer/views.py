@@ -9,25 +9,70 @@ from django.views.generic import TemplateView
 from jyutping.jyutping import get_jyutping
 from synthesizer.models import Transcript
 from .forms import TranscriptForm
+import json
+from django.http import HttpResponse, Http404, StreamingHttpResponse
+
+# import json
+# from django.http import HttpResponse
+ 
+# # Create your views here.
+# from django.views.decorators.csrf import csrf_exempt
+ 
+
+# @csrf_exempt
+# def my_api(request):
+#     dic = {}
+#     if request.method == 'GET':
+#         dic['message'] = 0
+#         return HttpResponse(json.dumps(dic))
+#     else:
+#         dic['message'] = '方法错误'
+#         return HttpResponse(json.dumps(dic, ensure_ascii=False))
+
+
+class SendDataToFrontEndProView(View):
+    """专门从后端传递所需数据给前端
+
+    method: Post
+    access_url: http://ip:port/senddata
+    """
+    def get(self, request):
+        """处理post请求
+
+        Args:
+            NA
+        Returns:
+            NA
+        """
+        status = "ok"
+        data = [{"data0":"A"}, {"data1":"B"}, {"data2":"C"},]
+
+        return HttpResponse(json.dumps({
+            "status": status,
+            "data":data,
+        }))
 
 
 # Create your views here.
 class IndexView(TemplateView):
+    print("i am here 0")
     template_name = "index.html"
 
 
 class TranscriptView(View):
     form = TranscriptForm
     template_name = "transcript.html"
-
+    print("i am here 1")
     def get(self, request):
         form = self.form(request.POST)
+        print("get form:",form)
         return render(self.request, self.template_name, {"form": form})
 
     def post(self, *args, **kwargs):
         pk = "/media/wav/cn.wav"
         if self.request.method == "POST" and self.request.is_ajax():
             form = self.form(self.request.POST)
+            print("post form:",form)
             if form.is_valid():
                 transcript = form.cleaned_data['transcript']
                 transcript = re.sub("[，。, . ]+", "", transcript)
