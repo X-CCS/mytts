@@ -35,7 +35,9 @@ pip show django
 http://192.168.9.202:8001/test
 
 export PATH=$PATH:/home/chenchangshu/mytts
+http://192.168.9.202:8001/trans
 
 "POST / HTTP/1.1" 400 18
 
-测试接口正常连接：http://192.168.9.202:8001/test
+测试接口正常连接：http://192.168.9.202:8001/test get 可以 post不行
+http://192.168.9.202:8001/trans

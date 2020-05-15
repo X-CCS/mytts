@@ -36,23 +36,7 @@ class SendDataToFrontEndProView(View):
     method: Post
     access_url: http://ip:port/senddata
     """
-    # def get(self, request):
-    #     """处理post请求
-
-    #     Args:
-    #         NA
-    #     Returns:
-    #         NA
-    #     """
-    #     status = "ok"
-    #     data = [{"data0":"A"}, {"data1":"B"}, {"data2":"C"},]
-
-    #     return HttpResponse(json.dumps({
-    #         "status": status,
-    #         "data":data,
-    #     }))
-
-    def post(self, request):
+    def get(self, request):
         """处理post请求
 
         Args:
@@ -66,18 +50,35 @@ class SendDataToFrontEndProView(View):
         return HttpResponse(json.dumps({
             "status": status,
             "data":data,
-        }))    
+        }))
+    
+    # def post(self, request):
+    #     """处理post请求
+
+    #     Args:
+    #         NA
+    #     Returns:
+    #         NA
+    #     """
+    #     status = "ok"
+    #     data = [{"data0":"A"}, {"data1":"B"}, {"data2":"C"},]
+
+    #     return HttpResponse(json.dumps({
+    #         "status": status,
+    #         "data":data,
+    #     }))    
 
 # Create your views here.
 class IndexView(TemplateView):
-    print("i am here 0")
+    # print("i am here 0")
     template_name = "index.html"
 
 
 class TranscriptView(View):
     form = TranscriptForm
+    print("origin form:",form)
     template_name = "transcript.html"
-    print("i am here 1")
+    print("i am TranscriptView")
     def get(self, request):
         form = self.form(request.POST)
         print("get form:",form)

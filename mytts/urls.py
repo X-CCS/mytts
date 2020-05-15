@@ -25,9 +25,9 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path(r'test', SendDataToFrontEndProView.as_view(),name="test")
+    # path(r'test', SendDataToFrontEndProView.as_view(),name="test")
     # path("", IndexView.as_view()),
-    # path("", TranscriptView.as_view(), name="transcript"),
+    path(r'trans', TranscriptView.as_view(), name="transcript"),
     # path("transcript/", get_transcript),
     # path("transcript/", TranscriptView.as_view(), name="transcript"),
     # path('', index, name="index"),
