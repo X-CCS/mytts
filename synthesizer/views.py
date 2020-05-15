@@ -71,7 +71,8 @@ class TranscriptView(View):
     def post(self, *args, **kwargs):
         pk = "/media/wav/cn.wav"
         if self.request.method == "POST" and self.request.is_ajax():
-            form = self.form(self.request.POST)
+            # form = self.form(self.request.POST)
+            form = "你哈！"
             print("post form:",form)
             if form.is_valid():
                 transcript = form.cleaned_data['transcript']
