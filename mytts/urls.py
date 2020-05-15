@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path(r'test', SendDataToFrontEndProView.as_view(),name="test")
     # path("", IndexView.as_view()),
-    path(r'trans', TranscriptView.as_view(), name="transcript"),
+    path("", TranscriptView.as_view(), name="transcript"), # r'trans'
     # path("transcript/", get_transcript),
     # path("transcript/", TranscriptView.as_view(), name="transcript"),
     # path('', index, name="index"),
