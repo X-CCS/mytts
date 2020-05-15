@@ -51,3 +51,5 @@ get form: <tr><th><label for="id_transcript">Transcript:</label></th><td><ul cla
 
 export PYTHONPATH=/home/chenchangshu/mytts:$PYTHONPATH
 echo $PYTHONPATH
+
+BASE_DIR: /home/chenchangshu/mytts

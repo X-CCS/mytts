@@ -76,9 +76,9 @@ class IndexView(TemplateView):
 
 class TranscriptView(View):
     form = TranscriptForm
-    print("origin form:",form)
+    # print("origin form:",form)
     template_name = "transcript.html"
-    print("i am TranscriptView")
+    # print("i am TranscriptView")
     def get(self, request):
         form = self.form(request.POST)
         print("get form:",form)
