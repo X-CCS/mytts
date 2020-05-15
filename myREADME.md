@@ -32,6 +32,3 @@ pip show django
 
 /home/chenchangshu/.conda/envs/Django_Can_py37/lib/python3.7/site-packages/django/contrib/admin/static/admin/img/favicon.ico
 /home/chenchangshu/.conda/envs/Django_Can_py37/lib/python3.7/site-packages/django/__init__.py
-
-
-http://192.168.9.202:8001/
