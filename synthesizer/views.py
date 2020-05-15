@@ -86,15 +86,16 @@ class TranscriptView(View):
 
     def post(self, *args, **kwargs):
         pk = "/media/wav/cn.wav"
-        
-        # if self.request.method == "POST" and self.request.is_ajax():
+        # if self.request.method == "POST" and self.request.is_ajax(): # 异步的时候
         if self.request.method == "POST":
             form = self.form(self.request.POST)
             print("post form:",form)
             if form.is_valid():
                 transcript = form.cleaned_data['transcript']
                 transcript = re.sub("[，。, . ]+", "", transcript)
+                print("transcript:",transcript)
                 jyutping = " ".join(get_jyutping(transcript))
+                print("jyutping:",jyutping)
 
                 model = Transcript(transcript=transcript, jyutping=jyutping)
                 model.save()
@@ -105,5 +106,6 @@ class TranscriptView(View):
                 # output = process.communicate()[0]
                 output = process.wait()
                 pk = pk + ".wav"
+                print("pk:",pk)
             return JsonResponse({"success": True, "path": str("/media/wav/{}".format(pk))}, status=200)
         return JsonResponse({"success": False}, status=400)
