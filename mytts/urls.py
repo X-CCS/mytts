@@ -18,15 +18,16 @@ from django.contrib import admin
 from django.urls import path
 
 from mytts import settings
-from synthesizer.views import TranscriptView,IndexView
+from synthesizer.views import TranscriptView,IndexView,SendDataToFrontEndProView
 from django.conf.urls import url
 from django.conf.urls import url, include
 # from synthesizer import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(r'^test$', SendDataToFrontEndProView.as_view())
     # path("", IndexView.as_view()),
-    path("", TranscriptView.as_view(), name="transcript"),
+    # path("", TranscriptView.as_view(), name="transcript"),
     # path("transcript/", get_transcript),
     # path("transcript/", TranscriptView.as_view(), name="transcript"),
     # path('', index, name="index"),
